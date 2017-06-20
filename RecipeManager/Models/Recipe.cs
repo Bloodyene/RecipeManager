@@ -7,9 +7,9 @@ namespace RecipeManager.Models
 {
     public class Recipe
     {
-        public string Name { get; set; }
-        public Dictionary<Ingredient,int> Ingredients { get; set; }
-        public string Contents { get; set; }
+        public string Name { get;private set; }
+        public List<Ingredient> Ingredients { get; set; }
+        public string Contents { get;private set; }
         public int CaloriesCount {
             get
             {
@@ -26,6 +26,12 @@ namespace RecipeManager.Models
             {
                 return Ingredients.Select((x) => x.Key.CaloriesPer100g * x.Value / 100).Sum();
             }
+        }
+        public Recipe(string name, string contents)
+        {
+            Name = name;
+            Contents = contents;
+            Ingredients = new Dictionary<Ingredient, int>();
         }
     }
 }

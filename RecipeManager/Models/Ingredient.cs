@@ -8,5 +8,6 @@
         public int FatPer100g { get; set; }
         public int ProteinPer100g { get; set; }
         public int FibrePer100g { get; set; }
+        public int Amount { get; set; }
     }
 }
